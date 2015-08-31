@@ -8,16 +8,28 @@ I would recommend anything written by Douglas Crockford (http://www.amazon.com/J
 
 Also a good link: http://jstherightway.org/
 
-Falsey Values
-JavaScript is dynamically typed and these will evaluate as false while everything else is true:
-false (boolean)
-0 (zero)
-"" (empty string)
-null (assigned by programmer)
-undefined (automatically assigned by JavaScript)
-NaN (Not a Number, a result of some bad math or operation)
-All variables are assigned to undefined by default. If a variable is declared like this:
-
+1. Falsey Values
+  * JavaScript is dynamically typed and these will evaluate as false while everything else is true:
+    * false (boolean)
+    * 0 (zero)
+    * "" (empty string)
+    * null (assigned by programmer)
+    * undefined (automatically assigned by JavaScript)
+    * NaN (Not a Number, a result of some bad math or operation)
+  * All variables are assigned to undefined by default. If a variable is declared like this:
+```javascript
+var myVar;
+```
+  * At this point JavaScript doesn't know if myVar is a number, an Object, an Array, or a Function. It could be anything and be used as anything since it is dynamically typed. It is undefined at this point.
+  * Unlike Java, testing if myVar is null won't be useful unless you know myVar can be set to null at some point in the program
+  * For more information on the difference between null and undefined see: http://stackoverflow.com/questions/5076944/what-is-the-difference-between-null-and-undefined-in-javascript
+```javascript
+if(myVar){
+  //myVar is not false, 0, empty string, null, undefined, or NaN
+  //in Java this would be the equivalent of testing if a string was not null and not empty
+}
+```
+* This will be enough in most cases to determine if a variable is useable. Note that this may not be a good idea if myVar can be 0 and that is a valid value.
 
 
 
