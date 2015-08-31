@@ -226,4 +226,5 @@ This assumes you are using an Eclipse IDE version such as Luna that has support 
 * AngularJS tutorial: http://docs.angularjs.org/tutorial
 * AngularJS video tutorials:  http://egghead.io/
 * AngularJS book: http://www.amazon.com/Mastering-Web-Application-Development-AngularJS/dp/1782161821
+* AngularJS 2 can be used with AngularJS 1:  http://angularjs.blogspot.com/2015/08/angular-1-and-angular-2-coexistence.html
 
