@@ -117,7 +117,7 @@ var function2 = function(){
   * Pretty much the only time you will be using new is for using a constructor function
   * This is primarily a style thing for writting modern JavaScript.
 
-7 . The usage of this depends on the context. It is dynamicly assigned.
+###### The usage of this depends on the context. It is dynamicly assigned.
 
 ```javascript
 var myObj = {
@@ -173,7 +173,9 @@ myObj.doStuff();
   * Class.js by John Resig (creator of jQuery) http://ejohn.org/blog/simple-javascript-inheritance/
   * http://www.crockford.com/javascript/inheritance.html
 
-###### Use a native for loop for performance reasons. Don't use library forEach or native forEach. In Chrome native for loops are much faster than everything else.
+###### Use a native for loop for performance reasons. 
+  * Don't use library forEach or native forEach. In Chrome native for loops are much faster than everything else.
+  * http://jsperf.com/angular-foreach-vs-underscore-foreach/10
 
 ######  Use normal camel case for javaScript variables that are not constants
 ```javascript
