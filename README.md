@@ -216,4 +216,14 @@ This assumes you are using an Eclipse IDE version such as Luna that has support 
 ###### AngularJS Plugin
 * Follow instructions here and install:  https://github.com/angelozerr/angularjs-eclipse
 
+### Chrome Plugins
+
+* AngularJS Batrang:  https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en
+
+### Additional Resources
+
+* AngularJS website:  http://angularjs.org/
+* AngularJS tutorial: http://docs.angularjs.org/tutorial
+* AngularJS video tutorials:  http://egghead.io/
+* AngularJS book: http://www.amazon.com/Mastering-Web-Application-Development-AngularJS/dp/1782161821
 
