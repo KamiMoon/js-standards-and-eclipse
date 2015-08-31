@@ -156,6 +156,33 @@ myObj.doStuff();
   * You can save a reference to the context you want in a variable.  For consistency this can be called "that."
   * More information on this http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
 
+8. Function are first class.
+  * Not really a source of errors, but it is key to understanding JavaScript.
+  * Unlike Java, function are first-class objects. They can be stored in variables, passed as arguments to functions, created within functions, and returned from functions. This allows for functional programming and is used heavily in JavaScript as callbacks. http://javascriptissexy.com/tag/higher-order-functions/
+
+9. setTimeout can be used to fix display issues when timing is an issue
+  * http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
+  * setTimeout with 0 often just means "do this when it is done rendering"
+  * For examples this can be used with the jQuery UI drag and drop plugin to synchronize having one action occur after something is dropped and done rendering.
+
+10. JavaScript can simulate "private" variables
+  * http://javascript.crockford.com/private.html
+ 
+11. JavaScript can simulate "classical" inheritance
+  * Class.js by John Resig (creator of jQuery) http://ejohn.org/blog/simple-javascript-inheritance/
+  * http://www.crockford.com/javascript/inheritance.html
+
+12. Use a native for loop for performance reasons. Don't use library forEach or native forEach. In Chrome native for loops are much faster than everything else.
+
+13.  Use normal camel case for javaScript variables that are not constants
+```javascript
+
+var MY_CONSTANT = 5;
+var myVariable = 5;
+ 
+var some_variable = 5; //bad
+```
+
 
 # Recommended way to import a JS project into Eclipse
 * Temporarily turn off build automatically, because node_modules folder is too big.
