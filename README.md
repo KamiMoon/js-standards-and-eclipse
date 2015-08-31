@@ -1,5 +1,7 @@
 # js-standards-and-eclipse
 
+### Understanding Core JavaScript and Standards
+
 Just having a W3Schools understanding of JavaScript is not enough.
 
 "JavaScript is the only language people feel like they don't need to learn to use."- Douglas Crockford
@@ -186,6 +188,9 @@ var myVariable = 5;
 var some_variable = 5; //bad
 ```
 
+### Eclipse IDE help
+
+This assumes you are using an Eclipse IDE version such as Luna that has support for JavaScript such as http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/marsr
 
 ###### Recommended way to import a JS project into Eclipse
 * Temporarily turn off build automatically, because node_modules folder is too big.
