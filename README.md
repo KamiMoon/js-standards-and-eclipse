@@ -8,7 +8,7 @@ I would recommend anything written by Douglas Crockford (http://www.amazon.com/J
 
 Also a good link: http://jstherightway.org/
 
-1. Falsey Values
+###### Falsey Values
   * JavaScript is dynamically typed and these will evaluate as false while everything else is true:
     * false (boolean)
     * 0 (zero)
@@ -31,13 +31,14 @@ if(myVar){
 ```
 * This will be enough in most cases to determine if a variable is useable. Note that this may not be a good idea if myVar can be 0 and that is a valid value.
 
-2. Comparisons
+
+###### Comparisons
   * Given falsey values and the dynamicly typed nature of JavaScript it is almost always a better idea to use === and !== rather than == and !=
   * The === operator will compare that types are equivalent. The == operator will do type coercion, which can lead to logical errors.
   * For more information see: http://stackoverflow.com/questions/359494/does-it-matter-which-equals-operator-vs-i-use-in-javascript-comparisons
   * JSHint automatically detects this and will give you a warning
 
-3. Hoisting
+###### Hoisting
   * All variables that are used in a function are automatically hoisted to the top of the function and assigned to undefined within the function. This is a hidden feature of the language and you need to be aware of this. It is a good practice to explicitly var (define) your variables at the top of the function and assign them a value (otherwise they are undefined). You do not have to do this for everything, but just be aware that this can be a source of errors.
 ```javascript
 (function() {
@@ -64,7 +65,7 @@ if(myVar){
   * JSHint can be configured to enforce that all variables in a function are explicitly defined at the top of the function if you want. You should at least be aware of this feature.
   * See http://www.sitepoint.com/back-to-basics-javascript-hoisting/
 
-4. Function Scope
+###### Function Scope
   * JavaScript has function scope rather than block scope like Java.
   * For example here is a for loop:
 ```javascript
@@ -96,7 +97,7 @@ var myParent = function(){
 ```
   * This is a powerful feature of the language and allows for closures. For more information on closures see: http://javascriptissexy.com/understand-javascript-closures-with-ease/
 
-5. Global scope
+###### Global scope
   * If you do not declare your variable using var it will seep out of function scope into the global scope
 ```javascript
 var function1 = function(){
@@ -110,7 +111,7 @@ var function2 = function(){
 ```
   * JSHint will detect this. Always declare your variables.
 
-6. Object and Array literals
+###### Object and Array literals
   * Use {} rather than new Object() and [] rather than new Array()
   * http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/
   * Pretty much the only time you will be using new is for using a constructor function
@@ -156,25 +157,25 @@ myObj.doStuff();
   * You can save a reference to the context you want in a variable.  For consistency this can be called "that."
   * More information on this http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
 
-8. Function are first class.
+###### Function are first class.
   * Not really a source of errors, but it is key to understanding JavaScript.
   * Unlike Java, function are first-class objects. They can be stored in variables, passed as arguments to functions, created within functions, and returned from functions. This allows for functional programming and is used heavily in JavaScript as callbacks. http://javascriptissexy.com/tag/higher-order-functions/
 
-9. setTimeout can be used to fix display issues when timing is an issue
+###### setTimeout can be used to fix display issues when timing is an issue
   * http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
   * setTimeout with 0 often just means "do this when it is done rendering"
   * For examples this can be used with the jQuery UI drag and drop plugin to synchronize having one action occur after something is dropped and done rendering.
 
-10. JavaScript can simulate "private" variables
+###### JavaScript can simulate "private" variables
   * http://javascript.crockford.com/private.html
  
-11. JavaScript can simulate "classical" inheritance
+###### JavaScript can simulate "classical" inheritance
   * Class.js by John Resig (creator of jQuery) http://ejohn.org/blog/simple-javascript-inheritance/
   * http://www.crockford.com/javascript/inheritance.html
 
-12. Use a native for loop for performance reasons. Don't use library forEach or native forEach. In Chrome native for loops are much faster than everything else.
+###### Use a native for loop for performance reasons. Don't use library forEach or native forEach. In Chrome native for loops are much faster than everything else.
 
-13.  Use normal camel case for javaScript variables that are not constants
+######  Use normal camel case for javaScript variables that are not constants
 ```javascript
 
 var MY_CONSTANT = 5;
@@ -184,13 +185,13 @@ var some_variable = 5; //bad
 ```
 
 
-# Recommended way to import a JS project into Eclipse
+###### Recommended way to import a JS project into Eclipse
 * Temporarily turn off build automatically, because node_modules folder is too big.
 * File->New>JavaScript Project pick the option to create project from existing source.
 * Under Project facets convert to JavaScript.
 * In include paths add node_modules as excluded.
 
-# Install and use JSHint with Eclipse
+###### Install and use JSHint with Eclipse
 * Website:  http://jshint.com/about/
 * Configuration Options:  http://jshint.com/docs/options/
 * Eclipse plugin:  http://github.eclipsesource.com/jshint-eclipse/
@@ -200,12 +201,12 @@ var some_variable = 5; //bad
 * A .jshintrc file will need to be placed in the root of your project.
 * Once the plugin is installed and Eclipse is restarted you will have a JSHint option on your project properties where you can configure JSHint. Configure the includes, excludes, and tell the plugin to use the .jshintrc file.
 
-# JavaScript Code Formatter
+###### JavaScript Code Formatter
 * Windows->Preferences->JavaScript->Code Style->Formatter. Import https://github.com/KamiMoon/js-standards-and-eclipse/blob/master/formatter/javascript-formatter.xml and apply these settings.
 * Windows->Preferences->JavaScript->Code Style->Clean Up. Import https://github.com/KamiMoon/js-standards-and-eclipse/blob/master/formatter/javascript-cleanup.xml and apply these settings.
 * Under Windows->Preferences->JavaScript->Editor->Save Actions perform the selectied actions on save:  Format Source code.  Additonal actions:  Convert control statement bodies to block, remove uncessary parentheses, remove trailing whitespaces on all lines
 
-# AngularJS Plugin
+###### AngularJS Plugin
 * Follow instructions here and install:  https://github.com/angelozerr/angularjs-eclipse
 
 
