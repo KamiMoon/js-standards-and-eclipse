@@ -31,6 +31,130 @@ if(myVar){
 ```
 * This will be enough in most cases to determine if a variable is useable. Note that this may not be a good idea if myVar can be 0 and that is a valid value.
 
+2. Comparisons
+  * Given falsey values and the dynamicly typed nature of JavaScript it is almost always a better idea to use === and !== rather than == and !=
+  * The === operator will compare that types are equivalent. The == operator will do type coercion, which can lead to logical errors.
+  * For more information see: http://stackoverflow.com/questions/359494/does-it-matter-which-equals-operator-vs-i-use-in-javascript-comparisons
+  * JSHint automatically detects this and will give you a warning
+
+3. Hoisting
+  * All variables that are used in a function are automatically hoisted to the top of the function and assigned to undefined within the function. This is a hidden feature of the language and you need to be aware of this. It is a good practice to explicitly var (define) your variables at the top of the function and assign them a value (otherwise they are undefined). You do not have to do this for everything, but just be aware that this can be a source of errors.
+```javascript
+(function() {
+  var foo = 1;
+  var bar = 2;
+  var baz = 3;
+ 
+  alert(foo + " " + bar + " " + baz);
+})();
+```
+  * Result is "1 2 3"
+```javascript
+(function() {
+  //var bar; hidden and hoisted up as undefined
+  //var baz; hidden and hoisted up as undefined
+ 
+  var foo = 1;
+  alert(foo + " " + bar + " " + baz);
+  var bar = 2;
+  var baz = 3;
+})();
+```
+  * Result is "1 undefined undefined"
+  * JSHint can be configured to enforce that all variables in a function are explicitly defined at the top of the function if you want. You should at least be aware of this feature.
+  * See http://www.sitepoint.com/back-to-basics-javascript-hoisting/
+
+4. Function Scope
+  * JavaScript has function scope rather than block scope like Java.
+  * For example here is a for loop:
+```javascript
+var myFunction = function(){
+  //var i; note this is hoisted to the top of the function and is undefined
+ 
+  for ( var i = 0; i < 5; i++) {
+    //doStuff
+  }
+  //i is still in scope and will be incremented
+ 
+  for (; i < 5; i++) {
+    //won't execute because i is already incremented
+  }
+  //i is still in scope and will be incremented
+}
+```
+  * Instead of block scope we have function scope. A function inside of another function has acess to the variables of the outer function
+```javascript
+var myParent = function(){
+  var myNumber = 5;
+ 
+  //in JavaScript functions can be assigned to variables and a function can have a variable that is a function
+  var myChild = function(){
+    //myNumber is still in scope here
+  };
+ 
+}
+```
+  * This is a powerful feature of the language and allows for closures. For more information on closures see: http://javascriptissexy.com/understand-javascript-closures-with-ease/
+
+5. Global scope
+  * If you do not declare your variable using var it will seep out of function scope into the global scope
+```javascript
+var function1 = function(){
+  //seeps out into global scope!
+  i = 5;
+}
+var function2 = function(){
+  //clobbering the global variable!
+  i = 4;
+}
+```
+  * JSHint will detect this. Always declare your variables.
+
+6. Object and Array literals
+  * Use {} rather than new Object() and [] rather than new Array()
+  * http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/
+  * Pretty much the only time you will be using new is for using a constructor function
+  * This is primarily a style thing for writting modern JavaScript.
+
+7 . The usage of this depends on the context. It is dynamicly assigned.
+
+```javascript
+var myObj = {
+  age: 5,
+  doStuff: function(){
+    //store a reference to ourself
+    var that = this;
+ 
+    console.log("----------------------------------------");
+    console.log("Inside my own function: " + this.age); //5
+ 
+    //timeout callback
+    setTimeout(function(){
+      //this refers to a context defined at a later time within the timeout
+      console.log("Inside a timeout callback using 'this' " + this.age);  //undefined
+      console.log("Inside a timeout callback using 'that' " + that.age);  //5
+    });
+ 
+    //ajax callback
+    $.get("www.google.com", function( data ) {
+      //this refers to the ajax request
+      console.log("Inside an ajax callback using 'this' " + this.age);  //undefined
+      console.log("Inside an ajax callback using 'that' " + that.age);  //5
+    });
+ 
+    //click callback
+    $("#myButton").on("click", function(e){
+      //this refers to click event and what you clicked on
+      console.log("Inside an click callback using 'this' " + this.age);  //undefined
+      console.log("Inside an click callback using 'that' " + that.age);  //5
+    });
+  }
+};
+ 
+myObj.doStuff();
+```
+  * You can save a reference to the context you want in a variable.  For consistency this can be called "that."
+  * More information on this http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
 
 
 # Recommended way to import a JS project into Eclipse
